@@ -23,9 +23,8 @@
       <header><h1 align="center" id="appName" >Bridge Uport Login POC</h1></header>
       <hr/>
       <section>
-        <h2>Create User / Login</h2>
+        <h2>Connect to uPort</h2>
         <button class="btn btn-sm btn-primary" id="connectUportBtn" onclick="uportConnect()">Connect uPort</button>
-        <button class="btn btn-sm btn-primary" id="loginUportBtn" onclick="uportLogin()">Login</button>
         <br/>
         <br/>
         <table>
@@ -43,6 +42,17 @@
         <table>
       </section>
       <hr/>
+      <section>
+        <h2> Login to Storj</h2>
+                <button class="btn btn-sm btn-primary" id="loginUportBtn" onclick="uportLogin()">Login</button>
+        <table>
+                    <tobdy>
+            <tr><td><span>Storj Id: </span><span id="storjId"></span></td></tr>
+          </tobdy>
+
+        </table>
+        <hr/>
+      </section>
       <section>
         <h2>Buckets</h2>
 

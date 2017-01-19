@@ -7,6 +7,9 @@ const appName = 'Storj'
 const uport = new Uport(appName)
 const web3 = uport.getWeb3()
 
+storjContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"registry","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"register","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"login","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"}]);
+var storj = storjContract.at('0x61ae21d286323a60801190c280647e502c53900d')
+
 // uPort connect
 
 const uportConnect = () => {
@@ -14,15 +17,18 @@ const uportConnect = () => {
     console.log(error)
     if (error) { throw error }
     globalState.uportId = address
-    uport.getUserPersona(address).then((persona)=> {
-      console.log('Test')
-      console.log(persona)
-      const profile = persona.profile
-      console.log(profile)
-      globalState.uportName = profile.name
-      globalState.imageSrc = 'https://ipfs.io/' + profile.image.contentUrl
-      render()
-    }).catch((e) => {console.log(e)})
+    storj.register({from:address, gas:300000}, (err, res) => {
+      console.log(res)
+    })
+    // uport.getUserPersona(address).then((persona)=> {
+    //   console.log('Test')
+    //   console.log(persona)
+    //   const profile = persona.profile
+    //   console.log(profile)
+    //   globalState.uportName = profile.name
+    //   globalState.imageSrc = 'https://ipfs.io/' + profile.image.contentUrl
+    //   render()
+    // }).catch((e) => {console.log(e)})
   })
 }
 
