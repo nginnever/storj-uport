@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/nginnever/storj-uport#readme",
   "dependencies": {
-    "uport-lib": "^2.1.0"
+    "bs58": "^4.0.0",
+    "buffer": "^5.0.2",
+    "uport-lib": "^2.1.0",
+    "uport-persona": "^2.0.3"
   }
 }
