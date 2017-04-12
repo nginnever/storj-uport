@@ -1,2 +1,2 @@
 # storj-uport
-storj authentication via uport
+storj authentication via uport.
